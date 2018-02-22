@@ -1,3 +1,11 @@
+"""
+	You will need one of my other repositories: utilities. That includes
+	the code for tmark and progressBar.
+
+	NOTE: Running this file with tflag = 0 on the DR12Q superset will download
+	~56 GB to your computer (~36,000 files at ~1.5 MB a piece).
+"""
+
 from astropy.io import fits
 import numpy as np
 import sys
