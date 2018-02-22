@@ -6,6 +6,7 @@ import os
 import tmark
 import glob
 
+#This will make the directories if they aren't present.
 def make_dirs(tplate):
 	check_loc = '../ica_spec/*'
 	folder_list = glob.glob(check_loc)
@@ -14,6 +15,8 @@ def make_dirs(tplate):
 		plate_dir = 'mkdir ../ica_spec/{}'.format(tplate)
 		os.system(plate_dir)
 
+#This gets the spectra, one file at a time. DR12 is public data, so wget does
+#not need a user/password.
 def get_files(p_in,m_in,f_in):
 
 	loc = 'https://data.sdss.org/sas/dr12/boss/spectro/redux/v5_7_0/spectra'
@@ -21,6 +24,8 @@ def get_files(p_in,m_in,f_in):
 	get_cmd = 'wget -qP ../ica_spec/{} {}'.format(p_in,spec_file)
 	os.system(get_cmd)
 
+#Main program for getting the spectra by reading the superset file. Tflag is a
+#testing flag. If you want to get all the files, go with tflag = 0.
 def spec_get(infile,tflag):
 	sd = fits.open(infile)[1].data
 
@@ -40,7 +45,7 @@ def spec_get(infile,tflag):
 		pb.pbar(i,numrec)
 	tmark.tm('Files Retrieved')
 
-
+#These lines let me run from the command line.
 set_file = sys.argv[1]
 test_flag = int(sys.argv[2])
 spec_get(set_file,test_flag)
