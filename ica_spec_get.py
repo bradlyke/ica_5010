@@ -42,5 +42,5 @@ def spec_get(infile,tflag):
 
 
 set_file = sys.argv[1]
-tflag = int(sys.argv[2])
-spec_get(set_file)
+test_flag = int(sys.argv[2])
+spec_get(set_file,test_flag)
