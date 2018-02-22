@@ -28,9 +28,13 @@ def make_dirs(tplate):
 def get_files(p_in,m_in,f_in):
 
 	loc = 'https://data.sdss.org/sas/dr12/boss/spectro/redux/v5_7_0/spectra'
+	loc2 = 'https://data.sdss.org/sas/dr12/boss/spectro/redux/v5_7_2/spectra'
 	spec_file = '{0}/{1}/spec-{2:04d}-{3:05d}-{4:04d}.fits'.format(loc,p_in,p_in,m_in,f_in)
+	spec_file2 = '{0}/{1}/spec-{2:04d}-{3:05d}-{4:04d}.fits'.format(loc2,p_in,p_in,m_in,f_in)
 	get_cmd = 'wget -qP ../ica_spec/{} {}'.format(p_in,spec_file)
+	get_cmd2 = 'wget -qP ../ica_spec/{} {}'.format(p_in,spec_file2)
 	os.system(get_cmd)
+	os.system(get_cmd2)
 
 #Main program for getting the spectra by reading the superset file. Tflag is a
 #testing flag. If you want to get all the files, go with tflag = 0.
