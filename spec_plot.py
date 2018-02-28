@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 matplotlib.rc('text', usetex=True)
 import sys
 
-def p_spec(infile,p_in,m_in,f_in,smoothing_pct,ogs):
+def p_spec(infile,p_in,m_in,f_in,smoothing_pct=0,ogs=1):
     loglam = infile['loglam'] #Extract log values for the x-axis values.
     lam = 10**loglam #Define the x-axis values for the plot.
     flux = infile['flux']
@@ -33,7 +33,7 @@ def p_spec(infile,p_in,m_in,f_in,smoothing_pct,ogs):
     ax1.set_ylim((y_lower,y_upper))
     ax1.tick_params(axis='both',direction='in')
     ax1.tick_params(axis='both',which='minor',direction='in')
-    if ((smoothing_pct != 0)&(ogs == 1)):
+    if ogs == 1:
         ax1.plot(lam,flux,color='grey',linewidth=0.6,label='Original Spectrum')
     if smoothing_pct != 0:
         ax1.plot(x_smooth,y_smooth,color='black',linewidth=0.8,label='Smoothed Spectrum ({})'.format(smoothing_pct))
@@ -47,12 +47,12 @@ def p_spec(infile,p_in,m_in,f_in,smoothing_pct,ogs):
     plt.tight_layout()
     plt.show()
 
-def file_open(ifile,plate,mjd,fiberid,spct,ogspec):
+def file_open(ifile,plate,mjd,fiberid,spct=0,ogspec=1):
     spec_file = fits.open(ifile)[1].data
     p_spec(spec_file,plate,mjd,fiberid,spct,ogspec)
 
-check_smooth = int(sys.argv[1])
-og_check = int(sys.argv[2])
-ptest, mtest, ftest = 7294, 56739, 21
-test_file = '../ica_spec/7294/spec-7294-56739-0021.fits'
-file_open(test_file,ptest,mtest,ftest,check_smooth,og_check)
+#check_smooth = int(sys.argv[1])
+#og_check = int(sys.argv[2])
+#ptest, mtest, ftest = 7294, 56739, 21
+#test_file = '../ica_spec/7294/spec-7294-56739-0021.fits'
+#file_open(test_file,ptest,mtest,ftest,check_smooth,og_check)
