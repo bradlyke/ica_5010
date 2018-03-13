@@ -13,7 +13,7 @@ def p_spec(infile,p_in,m_in,f_in,smoothing_pct=0,ogs=1):
     #Define the axes limits
     x_lower = np.amin(lam)
     x_upper = np.amax(lam)
-    vis_range = np.where((lam>=4000)&(lam<=9000))[0]
+    vis_range = np.where((lam>=3700)&(lam<=9000))[0]
     y_range = np.amax(flux[vis_range]) - np.amin(flux[vis_range])
     y_pad = float(y_range) / 10
     y_lower = np.amin(flux[vis_range]) - y_pad
@@ -51,8 +51,13 @@ def file_open(ifile,plate,mjd,fiberid,spct=0,ogspec=1):
     spec_file = fits.open(ifile)[1].data
     p_spec(spec_file,plate,mjd,fiberid,spct,ogspec)
 
-#check_smooth = int(sys.argv[1])
-#og_check = int(sys.argv[2])
+check_smooth = int(sys.argv[1])
+og_check = int(sys.argv[2])
 #ptest, mtest, ftest = 7294, 56739, 21
 #test_file = '../ica_spec/7294/spec-7294-56739-0021.fits'
+spec_file_in = sys.argv[3]
+pin = int(sys.argv[4])
+mmin = int(sys.argv[5])
+fin = int(sys.argv[6])
 #file_open(test_file,ptest,mtest,ftest,check_smooth,og_check)
+file_open(spec_file_in,pin,mmin,fin,check_smooth,og_check)
