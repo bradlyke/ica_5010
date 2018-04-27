@@ -1,3 +1,13 @@
+"""
+	This script was originally written to plot smoothing functions of different
+    types. It, however, uses 'dumb' smoothing whereby it simply drops pixel data.
+    The updated version of the smoothing in rolling_boxcar.ipynb uses a moving
+    average method of smoothing which doesn't lose data resolution, but still
+    smooths spectra.
+
+    NOTE: DEPRECATED.
+"""
+
 from astropy.io import fits
 import numpy as np
 import matplotlib
