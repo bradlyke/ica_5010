@@ -5,7 +5,7 @@ Dependencies: my other repository called "utilities".
 
 File Descriptions:
 
-# Main files:
+## Main files:
 rolling_boxcar.ipynb : Main program. This is, essentially, the entire project
   post-data gathering. All data processing is here. bench_test.py is data
   analysis.
@@ -14,7 +14,7 @@ bench_test.py : A program to read all of the benchmark files output by the boxca
   notebook. Will output computation time histograms and can be easily modified
   for other analyses.
 
-# Other files:
+## Other files:
 ica_spec_get.py : This script will download the spectra data FITS files from SDSS.
   Careful with this one. If a testing flag is turned off you're about to download
   ~56 GB of data to your machine.
