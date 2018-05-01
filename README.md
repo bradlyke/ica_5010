@@ -3,6 +3,12 @@ Independent Component Analysis project for SDSS Spectra
 
 File Descriptions:
 
+# Main file:
+rolling_boxcar.ipynb : Main program. This is, essentially, the entire project
+  post-data gathering. All data processing is here. bench_test.py is data
+  analysis.
+
+# Other files:
 ica_spec_get.py : This script will download the spectra data FITS files from SDSS.
 
 ica_png_get.py : This script downloads the attendant PNG spectra files.
@@ -41,6 +47,3 @@ emcee_pplot.py : This script generates a fitted spectral line and the corner plo
   for that fit from emcee. It is copied functionality from rolling_boxcar.ipynb
   as Jupyter notebooks are not easily usable for generating png files for
   exportation.
-
-# Main file:
-rolling_boxcar.ipynb : not deployed yet. Will be soon.
