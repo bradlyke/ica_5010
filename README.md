@@ -42,5 +42,5 @@ emcee_pplot.py : This script generates a fitted spectral line and the corner plo
   as Jupyter notebooks are not easily usable for generating png files for
   exportation.
 
-Main file:
+# Main file:
 rolling_boxcar.ipynb : not deployed yet. Will be soon.
