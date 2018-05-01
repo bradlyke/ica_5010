@@ -185,7 +185,7 @@ def file_load(infile):
             matplotlib.rc('font',size=15)
             fig2 = corner.corner(samples[:,0:3], labels=["$\sigma_1$", "$\mu_1$", "$A_1$"],
                         label_kwargs={"fontsize": 15},quantiles=[0.16, 0.5, 0.84],
-                        show_titles=True, title_kwargs={"fontsize": 15})
+                        show_titles=True, levels=(1-np.exp(-0.5),), title_kwargs={"fontsize": 15})
             '''
             fig2 = corner.corner(samples[:,:], labels=["$\sigma_1$", "$\mu_1$", "$A_1$","$m$","$b$"],
                         label_kwargs={"fontsize": 15},quantiles=[0.16, 0.5, 0.84],
