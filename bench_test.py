@@ -1,3 +1,7 @@
+"""
+This is for benchmark testing to see how the program did with the final
+classifications.
+"""
 from astropy.io import fits
 import numpy as np
 import matplotlib
